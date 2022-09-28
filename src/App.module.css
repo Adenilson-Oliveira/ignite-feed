@@ -1,0 +1,13 @@
+/* 70 rem = 70 * 16 = 1120 (1120 veio do projeto do figma)*/
+
+.wrapper {
+  max-width: 70rem;
+  margin: 2rem auto;
+  padding: 0 1rem;
+
+  display: grid;
+  grid-template-columns: 256px 1fr;
+  gap: 2rem;
+  align-items: flex-start;
+
+}
