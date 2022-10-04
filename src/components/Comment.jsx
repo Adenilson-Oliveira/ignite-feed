@@ -12,7 +12,17 @@ export const Comment = ({ content, onDeleteComment }) => {
   }
 
   const handleLikeComment = () => {
-    setCountLike(countLike + 1)
+    // Closures (contexto de funções) no react
+
+    // setCountLike(countLike + 1)
+    // setCountLike(countLike + 1)
+    // console.log(countLike)
+    // setCountLike(countLike + 1)
+    // setCountLike(countLike + 1)
+
+    setCountLike((currentState) => {
+      return currentState + 1
+    })
   }
 
   return (
