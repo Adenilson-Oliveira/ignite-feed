@@ -1,6 +1,4 @@
-# IgniteFeed
-
-![Logo](src/assets/ignite-logo.svg)
+# IgniteFeed ![Logo](src/assets/ignite-logo.svg)
 
 ### Rode o projeto em sua maquina(passo a passo) :
   1- Dê um **git clone** no projeto
