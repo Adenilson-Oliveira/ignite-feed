@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { ChangeEvent, FormEvent, useState } from 'react'
 
 import { format, formatDistanceToNow } from 'date-fns'
 import ptBR from 'date-fns/esm/locale/pt-BR'
@@ -7,9 +7,25 @@ import { Avatar } from './Avatar'
 import { Comment } from './Comment'
 import styles from './Post.module.css'
 
+interface Author {
+  name: string;
+  role: string;
+  avatarUrl: string;
+}
+
+interface Content {
+  type: string; 
+  content: string
+}
+
+interface PostProps {
+  author: Author;
+  publishedAt: Date;
+  content: Content[];
+}
 
 
-export const Post = ({ author, publishedAt, content }) => {
+export const Post = ({ author, publishedAt, content }: PostProps) => {
 
   const [comments, setComments] = useState([
     'Post muito bacana!',
@@ -28,7 +44,7 @@ export const Post = ({ author, publishedAt, content }) => {
     addSuffix: true
   })
 
-  const handleCreateNewComment = () => {
+  const handleCreateNewComment = (event: FormEvent) => {
     
     event.preventDefault()
 
@@ -37,11 +53,11 @@ export const Post = ({ author, publishedAt, content }) => {
     setNewCommentText('')
   }
 
-  const handleNewCommentChange = () => {
+  const handleNewCommentChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setNewCommentText(event.target.value)
   }
 
-  const deleteComment = (commentToDelete) => {
+  const deleteComment = (commentToDelete: string) => {
     const commentsWithoutTheCommentToDelete = comments.filter((el) => 
       el !== commentToDelete
     )
